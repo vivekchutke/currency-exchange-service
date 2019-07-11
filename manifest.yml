@@ -1,4 +1,17 @@
-name: CFExchangeService 
+name: PCFExchangeService 
 path: target/currency-exchange-service-0.0.1-SNAPSHOT.jar 
 buildpack: https://github.com/cloudfoundry/java-buildpack.git
 memory: 1G
+env: 
+   spring_jpa_hibernate_ddl-auto: update
+   JAVA_OPTS: -Djava.security.port=8100
+
+#spring:
+ #  security:
+  #    user:
+   #      name: ${vcap.services.my-cfcups-service.credentials.username:admin}
+    #     password: ${vcap.services.my-cfcups-service.credentials.password:password}
+
+services:
+ # - myEurekaServiceRegistry
+  - my-cfcups-service
